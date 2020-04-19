@@ -4,10 +4,13 @@ namespace pandora
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Utils.ShowWelcomeText();
-            Utils.ShowExitText();
+    
+            Menu menu = new Menu();
+            menu.ShowMenu();
+            menu.GetMenuOption();
         }
     }
 }
