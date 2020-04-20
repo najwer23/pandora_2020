@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace pandora
 {
@@ -22,6 +24,9 @@ namespace pandora
         public static void ShowRelaseNote()
         {
             Console.WriteLine("Wspanialy text wczytany z pliku");
+            string txt = File.ReadAllText("FILES\\test.txt"); // akcja kompilacji -> zawartość
+            Console.WriteLine(txt);
+
         }
     }
 }

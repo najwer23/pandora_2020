@@ -40,6 +40,7 @@ namespace pandora
                     Console.WriteLine("Brak opcji w menu. Spróbuj ponownie..");
                     GetMenuOption();
                     break;
+
             }
         }
     }

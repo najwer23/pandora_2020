@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "pandora": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
