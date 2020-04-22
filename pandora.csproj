@@ -6,10 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="FILES\JSON\relase.json" />
     <None Remove="FILES\test.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="FILES\JSON\relase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="FILES\test.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

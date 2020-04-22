@@ -22,11 +22,36 @@ namespace pandora
         }
 
         public static void ShowRelaseNote()
-        {
-            Console.WriteLine("Wspanialy text wczytany z pliku");
-            string txt = File.ReadAllText("FILES\\test.txt"); // akcja kompilacji -> zawartość
-            Console.WriteLine(txt);
+        {            
+            try
+            {
+                Console.WriteLine("Historia programu (timeline)\n");
 
+                string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
+                List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
+
+                int sizeList = deserializedJsonRelase.Count;
+                int it = 1;
+                int sizeIdSpaceMax = sizeList.ToString().Length;
+                int sizeIdSpaceItem = 0;
+                int sizeIdSpace = 0;
+                foreach (var item in deserializedJsonRelase)
+                {
+                    sizeIdSpaceItem = item.Id.ToString().Length;
+                    sizeIdSpace = sizeIdSpaceItem < sizeIdSpaceMax ? (sizeIdSpaceMax - sizeIdSpaceItem) : 0;
+                    Console.Write(item.Id + "." + new string(' ', sizeIdSpace) + " | ");
+                    Console.WriteLine(item.Time.Replace("#", " | "));
+                    Console.WriteLine(new string(' ', 1) + item.Text);
+                    if (it != sizeList)
+                    {
+                        Console.WriteLine(); it++;
+                    }                     
+                }
+            } catch
+            {
+                Console.Write("Wystąpił błąd podczas wczytywania pliku relase.json");
+            }
+            
         }
     }
 }
