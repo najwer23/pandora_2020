@@ -13,5 +13,10 @@
     "Id": 3,
     "Time": "22-04-2020#18:00",
     "Text": "Dodano Wczytywanie pliku JSON (newtonsoft.JSON library)"
+  },
+  {
+    "Id": 4,
+    "Time": "23-04-2020#20:34",
+    "Text": "Dodano openweathermap dla Wrocławia"
   }
 ]

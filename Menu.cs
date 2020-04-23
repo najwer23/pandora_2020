@@ -7,16 +7,17 @@ namespace pandora
         public char SelectedOption { get; set; }
         public void ShowMenu()
         {
-            Console.WriteLine("Menu");
-            Console.WriteLine("m --- Pokaż menu");
-            Console.WriteLine("r --- Informacje o wersji");
-            Console.WriteLine("e --- Koniec");
+            Console.WriteLine(" Menu");
+            Console.WriteLine(" m --- Pokaż menu");
+            Console.WriteLine(" r --- Informacje o wersji");
+            Console.WriteLine(" p --- Pogoda Wrocław");
+            Console.WriteLine(" e --- Koniec");
         }
 
         public void GetMenuOption()
         {
             Console.WriteLine();
-            Console.Write(">> ");
+            Console.Write(" >> ");
            
             SelectedOption = Console.ReadKey().KeyChar;
 
@@ -31,6 +32,10 @@ namespace pandora
                     break;
                 case 'r':
                     Utils.ShowRelaseNote();
+                    GetMenuOption();
+                    break; 
+                case 'p':
+                    Utils.ShowForecast();
                     GetMenuOption();
                     break;  
                 case 'e':
