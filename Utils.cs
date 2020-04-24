@@ -22,6 +22,72 @@ namespace pandora
             Console.ReadLine();
         }
 
+        public static void SaveRelaseNote()
+        {
+            //Console.Write(" Zmiana w dokumentacji");
+
+            //string pass;
+            //bool isPassOk = false;
+
+            //while (!isPassOk)
+            //{
+            //    Console.Write("\n Proszę podać hasło: ");
+            //    pass = "";
+            //    do
+            //    {
+            //        ConsoleKeyInfo key = Console.ReadKey(true);
+            //        if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+            //        {
+            //            pass += key.KeyChar;
+            //            Console.Write("*");
+            //        }
+            //        else
+            //        {
+            //            if (key.Key == ConsoleKey.Backspace && pass.Length > 0)
+            //            {
+            //                pass = pass[0..^1];
+            //                Console.Write("\b \b");
+            //            }
+            //            else if (key.Key == ConsoleKey.Enter)
+            //            {
+            //                if (pass == "halo")
+            //                {
+            //                    isPassOk = true;
+            //                }
+            //                break;
+            //            }
+            //        }
+            //    } while (true);
+            //}
+
+            try
+            {
+                string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
+                List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
+
+                Console.Write(" Opis zmian: ");
+                string userText = Console.ReadLine();
+
+                int sizeList = deserializedJsonRelase.Count;
+                deserializedJsonRelase.Add(new JsonRelase
+                {
+                    Id = sizeList++,
+                    Time = DateTime.Now,
+                    Text = userText
+                });
+
+                string json = JsonConvert.SerializeObject(deserializedJsonRelase.ToArray());
+                File.WriteAllText("FILES\\JSON\\relase.json", json);
+
+                File.WriteAllText(@"C:\Users\mariusz\pandora_2020\pandora\FILES\JSON\relase.json", json); //kopia dla gita
+                Console.WriteLine(" Zmiany w dokumentacji zostały zapisane!");
+            } catch
+            {
+                Console.Write(" Wystąpił błąd podczas wczytywania pliku relase.json");
+            }
+            
+        }
+
         public static void ShowRelaseNote()
         {
             try
@@ -41,7 +107,7 @@ namespace pandora
                     sizeIdSpaceItem = item.Id.ToString().Length;
                     sizeIdSpace = sizeIdSpaceItem < sizeIdSpaceMax ? (sizeIdSpaceMax - sizeIdSpaceItem) : 0;
                     Console.Write(" " + item.Id + "." + new string(' ', sizeIdSpace) + " | ");
-                    Console.WriteLine(item.Time.Replace("#", " | "));
+                    Console.WriteLine(item.Time);
                     Console.WriteLine(new string(' ', 1) + item.Text);
                     if (it != sizeList)
                     {

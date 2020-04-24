@@ -7,7 +7,7 @@ namespace pandora
     class JsonRelase
     {
         public int Id { get; set; }
-        public string Time { get; set; }
+        public DateTime Time { get; set; }
         public string Text { get; set; }
     }
 }

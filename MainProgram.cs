@@ -2,7 +2,7 @@
 
 namespace pandora
 {
-    class Program
+    class MainProgram
     {
         static void Main()
         {

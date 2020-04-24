@@ -1,1 +1,20 @@
-halo halo halo 
+{
+    "Id": 1,
+    "Time": "19.04.2020 18:00",
+    "Text": "Start programu Pandora Reborn 2020"
+  },
+  {
+    "Id": 2,
+    "Time": "20-04-2020#18:00",
+    "Text": "Dodano menu"
+  },
+  {
+    "Id": 3,
+    "Time": "22-04-2020#18:00",
+    "Text": "Dodano Wczytywanie pliku JSON (newtonsoft.JSON library)"
+  },
+  {
+    "Id": 4,
+    "Time": "23-04-2020#20:34",
+    "Text": "Dodano openweathermap dla Wroc³awia"
+  }

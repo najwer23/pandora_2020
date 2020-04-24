@@ -11,6 +11,7 @@ namespace pandora
             Console.WriteLine(" m --- Pokaż menu");
             Console.WriteLine(" r --- Informacje o wersji");
             Console.WriteLine(" p --- Pogoda Wrocław");
+            Console.WriteLine(" d --- Dodaj Zmiane dla dokumentacji");
             Console.WriteLine(" e --- Koniec");
         }
 
@@ -40,6 +41,10 @@ namespace pandora
                     break;  
                 case 'e':
                     Utils.ShowExitText();
+                    break;
+                case 'd':
+                    Utils.SaveRelaseNote();
+                    GetMenuOption();
                     break; 
                 default:
                     Console.WriteLine("Brak opcji w menu. Spróbuj ponownie..");
