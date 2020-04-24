@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -24,41 +25,13 @@ namespace pandora
 
         public static void SaveRelaseNote()
         {
-            //Console.Write(" Zmiana w dokumentacji");
+            Console.Write(" Zmiana w dokumentacji");
 
-            //string pass;
-            //bool isPassOk = false;
+            string orginPass = "54b793b281b8aa779d1d5017ad73f588c9f1de98c7cfee52f3c8337e455107a64d29da1e2b638daace1f137a4675a56935a721f75f396ff429d16addefbea5ff";
+            CheckCredentials(orginPass); //halo
 
-            //while (!isPassOk)
-            //{
-            //    Console.Write("\n Proszę podać hasło: ");
-            //    pass = "";
-            //    do
-            //    {
-            //        ConsoleKeyInfo key = Console.ReadKey(true);
-            //        if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
-            //        {
-            //            pass += key.KeyChar;
-            //            Console.Write("*");
-            //        }
-            //        else
-            //        {
-            //            if (key.Key == ConsoleKey.Backspace && pass.Length > 0)
-            //            {
-            //                pass = pass[0..^1];
-            //                Console.Write("\b \b");
-            //            }
-            //            else if (key.Key == ConsoleKey.Enter)
-            //            {
-            //                if (pass == "halo")
-            //                {
-            //                    isPassOk = true;
-            //                }
-            //                break;
-            //            }
-            //        }
-            //    } while (true);
-            //}
+            //Obecnie nie ma większego sensu sprawdzać czy hasło jest poprawne,
+            //kiedy plik json nie jest szyfrowany
 
             try
             {
@@ -86,6 +59,60 @@ namespace pandora
                 Console.Write(" Wystąpił błąd podczas wczytywania pliku relase.json");
             }
             
+        }
+
+        public static void CheckCredentials(string orginPass)
+        {
+            string pass;
+            bool isPassOk = false;
+
+            while (!isPassOk)
+            {
+                Console.Write("\n Proszę podać hasło: ");
+                pass = "";
+                do
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                    {
+                        pass += key.KeyChar;
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        if (key.Key == ConsoleKey.Backspace && pass.Length > 0)
+                        {
+                            pass = pass[0..^1];
+                            Console.Write("\b \b");
+                        }
+                        else if (key.Key == ConsoleKey.Enter)
+                        {
+                            if (MakeSHA512(pass) == orginPass)
+                            {
+                                isPassOk = true;
+                            }
+                            break;
+                        }
+                    }
+                } while (true);
+            }
+
+            Console.WriteLine("\n Hasło OK!");
+        }
+
+        public static string MakeSHA512(string text)
+        {
+            byte[] hashedPass;
+            SHA512 shaM = new SHA512Managed();
+            hashedPass = shaM.ComputeHash(Encoding.UTF8.GetBytes(text));
+
+            StringBuilder hashedPassStringBuilder = new StringBuilder();
+            for (int i = 0; i < hashedPass.Length; i++)
+            {
+                hashedPassStringBuilder.Append(hashedPass[i].ToString("x2"));
+            }
+
+            return hashedPassStringBuilder.ToString();
         }
 
         public static void ShowRelaseNote()
