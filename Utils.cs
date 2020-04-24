@@ -58,33 +58,40 @@ namespace pandora
 
         public static void ShowForecast()
         {
-            //Should It hide?
-            var jsonForecast = new WebClient().DownloadString("https://api.openweathermap.org/data/2.5/weather?q=Wroclaw,PL&appid=44d4448ac56b1e46ac958095e7a55622");
-            dynamic forecast = JsonConvert.DeserializeObject(jsonForecast);
+            try
+            { 
+                //Should It hide?
+                var jsonForecast = new WebClient().DownloadString("https://api.openweathermap.org/data/2.5/weather?q=Wroclaw,PL&appid=44d4448ac56b1e46ac958095e7a55622");
+                dynamic forecast = JsonConvert.DeserializeObject(jsonForecast);
 
-            double tempCelWroclaw = forecast.main.temp - 273.15;
-            double pressureWroclaw = forecast.main.pressure;
-            double windWroclaw = forecast.wind.speed * 3.6;
+                double tempCelWroclaw = forecast.main.temp - 273.15;
+                double pressureWroclaw = forecast.main.pressure;
+                double windWroclaw = forecast.wind.speed * 3.6;
 
-            double lonWroclaw = forecast.coord.lon;
-            double latWroclaw = forecast.coord.lat;
+                double lonWroclaw = forecast.coord.lon;
+                double latWroclaw = forecast.coord.lat;
 
-            long sunriseMsWroclaw = (forecast.sys.sunrise + forecast.timezone) * 1000;
-            DateTime sunriseWroclaw = DateTimeOffset.FromUnixTimeMilliseconds(sunriseMsWroclaw).UtcDateTime;
-           
-            long sunsetMsWroclaw = (forecast.sys.sunset + forecast.timezone) * 1000;
-            DateTime sunsetWroclaw = DateTimeOffset.FromUnixTimeMilliseconds(sunsetMsWroclaw).UtcDateTime;
+                long sunriseMsWroclaw = (forecast.sys.sunrise + forecast.timezone) * 1000;
+                DateTime sunriseWroclaw = DateTimeOffset.FromUnixTimeMilliseconds(sunriseMsWroclaw).UtcDateTime;
 
-            Console.WriteLine(" Pogoda we Wrocławiu :)\n");
+                long sunsetMsWroclaw = (forecast.sys.sunset + forecast.timezone) * 1000;
+                DateTime sunsetWroclaw = DateTimeOffset.FromUnixTimeMilliseconds(sunsetMsWroclaw).UtcDateTime;
 
-            Console.WriteLine(" Temperatura: " + tempCelWroclaw.ToString("F") + " \u00B0C");
-            Console.WriteLine(" Ciśnienie atmosferyczne: " + pressureWroclaw.ToString("F") + " hPa\n");
-            Console.WriteLine(" Prędkość wiatru: " + windWroclaw.ToString("F") + " km/h");
+                Console.WriteLine(" Pogoda we Wrocławiu :)\n");
 
-            Console.WriteLine(" Szerokość geograficzna: " + latWroclaw.ToString("F") + " \u00B0N");
-            Console.WriteLine(" Długość geograficzna: " + lonWroclaw.ToString("F") + " \u00B0E\n");
-            Console.WriteLine(" Wschód Słońca: " + sunriseWroclaw);
-            Console.WriteLine(" Zachód Słońca: " + sunsetWroclaw);
+                Console.WriteLine(" Temperatura: " + tempCelWroclaw.ToString("F") + " \u00B0C");
+                Console.WriteLine(" Ciśnienie atmosferyczne: " + pressureWroclaw.ToString("F") + " hPa\n");
+                Console.WriteLine(" Prędkość wiatru: " + windWroclaw.ToString("F") + " km/h");
+
+                Console.WriteLine(" Szerokość geograficzna: " + latWroclaw.ToString("F") + " \u00B0N");
+                Console.WriteLine(" Długość geograficzna: " + lonWroclaw.ToString("F") + " \u00B0E\n");
+                Console.WriteLine(" Wschód Słońca: " + sunriseWroclaw);
+                Console.WriteLine(" Zachód Słońca: " + sunsetWroclaw);
+            }
+            catch
+            {
+                Console.Write(" Wystąpił błąd z usługą api.openweathermap.org");
+            }
         }
     }
 }
