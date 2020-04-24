@@ -2,7 +2,7 @@
 
 namespace pandora
 {
-    class Menu
+    class Menu : Utils
     {
         public char SelectedOption { get; set; }
         public void ShowMenu()
@@ -11,7 +11,8 @@ namespace pandora
             Console.WriteLine(" m --- Pokaż menu");
             Console.WriteLine(" r --- Informacje o wersji");
             Console.WriteLine(" p --- Pogoda Wrocław");
-            Console.WriteLine(" d --- Dodaj Zmiane dla dokumentacji");
+            Console.WriteLine(" d --- Dodaj zmianę dla dokumentacji");
+            Console.WriteLine(" u --- Usuń ostanią zmianę dla dokumentacji");
             Console.WriteLine(" e --- Koniec");
         }
 
@@ -32,22 +33,26 @@ namespace pandora
                     GetMenuOption();
                     break;
                 case 'r':
-                    Utils.ShowRelaseNote();
+                    ShowRelaseNote();
                     GetMenuOption();
                     break; 
                 case 'p':
-                    Utils.ShowForecast();
+                    ShowForecast();
                     GetMenuOption();
                     break;  
                 case 'e':
-                    Utils.ShowExitText();
+                    ShowExitText();
                     break;
                 case 'd':
-                    Utils.SaveRelaseNote();
+                    SaveRelaseNote();
+                    GetMenuOption();
+                    break;  
+                case 'u':
+                    RemoveLastRelasedItem();
                     GetMenuOption();
                     break; 
                 default:
-                    Console.WriteLine("Brak opcji w menu. Spróbuj ponownie..");
+                    Console.WriteLine(" Brak opcji w menu. Spróbuj ponownie..");
                     GetMenuOption();
                     break;
 

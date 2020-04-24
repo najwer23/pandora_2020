@@ -10,6 +10,13 @@ namespace pandora
 {
     class Utils
     {
+        protected string orginPass = "54b793b281b8aa779d1d5017ad73f588c9f1de98c7cfee52f3c8337e455107a64d29da1e2b638daace1f137a4675a56935a721f75f396ff429d16addefbea5ff";
+
+        public string GetOrginPass()
+        {
+            return orginPass;
+        }
+
         public static void ShowWelcomeText()
         {
             Console.WriteLine(" Project Pandora 2020");
@@ -23,12 +30,47 @@ namespace pandora
             Console.ReadLine();
         }
 
-        public static void SaveRelaseNote()
+        public void RemoveLastRelasedItem()
+        {
+            Console.Write(" Usuń ostnią zamianę w dokumentacji");
+            CheckCredentials(GetOrginPass());
+
+            try
+            {
+                string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
+                List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
+
+                if (deserializedJsonRelase == null)
+                {
+                    Console.WriteLine(" Plik jest pusty");
+                    return;
+                }
+
+                int sizeList = deserializedJsonRelase.Count;
+                deserializedJsonRelase.RemoveAt(sizeList - 1);
+
+                string json = JsonConvert.SerializeObject(deserializedJsonRelase.ToArray());
+                File.WriteAllText("FILES\\JSON\\relase.json", json);
+
+                File.WriteAllText(@"C:\Users\mariusz\pandora_2020\pandora\FILES\JSON\relase.json", json); //kopia dla gita
+                Console.WriteLine(" Usunięto ostatnią zmianę!");
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Variable is Null!");
+            }
+            catch
+            {
+                Console.WriteLine(" Wystąpił błąd podczas wczytywania pliku relase.json");
+            }
+           
+        }
+
+        public void SaveRelaseNote()
         {
             Console.Write(" Zmiana w dokumentacji");
 
-            string orginPass = "54b793b281b8aa779d1d5017ad73f588c9f1de98c7cfee52f3c8337e455107a64d29da1e2b638daace1f137a4675a56935a721f75f396ff429d16addefbea5ff";
-            CheckCredentials(orginPass); //halo
+            CheckCredentials(GetOrginPass());
 
             //Obecnie nie ma większego sensu sprawdzać czy hasło jest poprawne,
             //kiedy plik json nie jest szyfrowany
@@ -41,24 +83,42 @@ namespace pandora
                 Console.Write(" Opis zmian: ");
                 string userText = Console.ReadLine();
 
-                int sizeList = deserializedJsonRelase.Count;
-                deserializedJsonRelase.Add(new JsonRelase
+                if (IsYesForSave())
                 {
-                    Id = sizeList++,
-                    Time = DateTime.Now,
-                    Text = userText
-                });
+           
+                    deserializedJsonRelase ??= new List<JsonRelase>();
 
-                string json = JsonConvert.SerializeObject(deserializedJsonRelase.ToArray());
-                File.WriteAllText("FILES\\JSON\\relase.json", json);
+                    int sizeList = deserializedJsonRelase.Count;
+                    deserializedJsonRelase.Add(new JsonRelase
+                    {
+                        Id = sizeList++,
+                        Time = DateTime.Now,
+                        Text = userText
+                    });
 
-                File.WriteAllText(@"C:\Users\mariusz\pandora_2020\pandora\FILES\JSON\relase.json", json); //kopia dla gita
-                Console.WriteLine(" Zmiany w dokumentacji zostały zapisane!");
+                    string json = JsonConvert.SerializeObject(deserializedJsonRelase.ToArray());
+                    File.WriteAllText("FILES\\JSON\\relase.json", json);
+
+                    File.WriteAllText(@"C:\Users\mariusz\pandora_2020\pandora\FILES\JSON\relase.json", json); //kopia dla gita
+                    Console.WriteLine(" Zmiany w dokumentacji zostały zapisane!");
+                } else
+                {
+                    Console.WriteLine(" Nie dokonano zmian w dokumentacji!");
+                }             
             } catch
             {
-                Console.Write(" Wystąpił błąd podczas wczytywania pliku relase.json");
+                Console.WriteLine(" Wystąpił błąd podczas wczytywania pliku relase.json");
             }
             
+        }
+
+        public bool IsYesForSave()
+        {
+            Console.WriteLine("\n Czy zapisać zmiany (y/n)?");
+            Console.Write(" >> ");
+            char charFromUser = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+            return charFromUser == 'y';
         }
 
         public static void CheckCredentials(string orginPass)

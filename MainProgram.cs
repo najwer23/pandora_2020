@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace pandora
+﻿namespace pandora
 {
     class MainProgram
     {
