@@ -22,9 +22,9 @@ namespace pandora
             Console.WriteLine(" p <-- Push Ups\n");
             Console.WriteLine(" Menu PushUps");
             Console.WriteLine(" ..................................................");
-            Console.WriteLine(" p --- Program 100pompek.pl");
-            Console.WriteLine("   t --- Chcę zrobić test");
-            Console.WriteLine("   k --- Kontynuuje trening");
+            Console.WriteLine(" Program 100pompek.pl");
+            Console.WriteLine("  t --- Chcę zrobić test");
+            Console.WriteLine("  k --- Kontynuuje trening");
             Console.WriteLine(" a --- Chcę podać własną liczbę pompek"); 
             Console.WriteLine(" c --- Kalendarz pompek");
             Console.WriteLine(" e --- Powrót do Menu");
@@ -43,9 +43,6 @@ namespace pandora
 
             switch (SelectedOption)
             {
-                case 'p':
-                    Program100PushUps();
-                    break;
                 case 't':
                     Program100PushUpsTest();
                     break;
