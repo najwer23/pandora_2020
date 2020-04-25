@@ -10,7 +10,63 @@
     - [x] Wyświetlane informacje: Temperatura, ciśnienie, prędkość wiatru, szerokość geograficzna, długość geograficzna, wschód i zachód słońca uwzględniający strefę czasową
     - [x] Informacje pogodowe dla miasta Wrocław
     - [ ] Informacje pogodowe dla Legnicy, Barcelony, Paryża, Londynu
+- [x] Informacje o aktualnej wersji (relase.json)
+    - [x] Parsowanie lokalnego pliku formatu *.json
+- [x] Funkcja pozwalająca dodawać treść nowej zmiany dla aktualnej wersji (relase.json)
+    - [x] Parsowanie lokalnego pliku formatu *.json
+    - [x] Ochrona hasłem, funkcja kodujaca, dekodująca oraz hashująca SHA512, dozwolone są 3 próby, wpisywane hasło jest ukryte w postaci gwiazdek: ****. Hasło to: "halo".
+    - [x] Parsowanie danych wejściowych i zapisanie do lokalnego pliku *.json
+    - [x] Obsługa wyjątków (brak plików, zły plik, pusty plik)
+    - [ ] Plik *.json powinien być umieszczony na webowym serwerzem lub powinien być szyfrowany RSA, elGamalem etc.
+- [x] Funkcja pozwalająca na usunięcie ostatniej dodanej zmiany dla aktualnej wersji (relase.json)
+    - [x] Parsowanie lokalnego pliku formatu *.json
+    - [x] Ochrona hasłem, funkcja kodujaca, dekodująca oraz hashująca SHA512, dozwolone są 3 próby, wpisywane hasło jest ukryte w postaci gwiazdek: ****. Hasło to: "halo".
+    - [x] Parsowanie danych wejściowych i zapisanie do lokalnego pliku *.json
+    - [x] Obsługa wyjątków (brak plików, zły plik, pusty plik)
+    - [ ] Możliwość usnięcia dowolnej zmiany 
+- [ ] Push-Ups (pompki)
+    - [x] Proste menu
+        - [ ] Funkcja pozwalająca kontynuować programu 100 pompek
+        - [ ] Funckja pozwalająca zrobić "test siły" dla programu 100 pompek
+    - [ ] Wpisanie dowlnej liczby pompek zrobionej w danym dniu
+    - [ ] Kalendarz zrobionych pompek w postaci tabeli
+    - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
+    - [ ] Excel ze statystykami 
+    - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+- [ ] Squats (przysiady)
+    - [ ] Proste menu
+        - [ ] Znalezienie programu ćwiczeń
+        - [ ] Funkcja pozwalająca kontynuować programu 
+        - [ ] Funckja pozwalająca zrobić "test siły"
+    - [ ] Wpisanie dowlnej liczby przysiadów zrobionej w danym dniu
+    - [ ] Kalendarz zrobionych przysiadów w postaci tabeli
+    - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
+    - [ ] Excel ze statystykami
+    - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+- [ ] Pull-Ups (podciągnięcia)
+    - [ ] Proste menu
+        - [ ] Znalezienie programu ćwiczeń
+        - [ ] Funkcja pozwalająca kontynuować programu 
+        - [ ] Funckja pozwalająca zrobić "test siły"
+    - [ ] Wpisanie dowlnej liczby podciągnięć zrobionej w danym dniu
+    - [ ] Kalendarz zrobionych podciągnięć w postaci tabeli
+    - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
+    - [ ] Excel ze statystykami 
+    - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+- [ ] Crunches (brzuszki)
+    - [ ] Proste menu
+        - [ ] Znalezienie programu ćwiczeń
+        - [ ] Funkcja pozwalająca kontynuować programu 
+        - [ ] Funckja pozwalająca zrobić "test siły"
+    - [ ] Wpisanie dowlnej liczby brzuszków zrobionej w danym dniu
+    - [ ] Kalendarz zrobionych podciągnięć w postaci tabeli
+    - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
+    - [ ] Excel ze statystykami 
+    - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+- [ ] ???
 
+
+    
 
 # Technologies 
 - C#
