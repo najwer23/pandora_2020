@@ -16,8 +16,8 @@ namespace pandora
             Console.WriteLine(" f --- Pogoda Wrocław");
             Console.WriteLine(" __________________________________________________");
             Console.WriteLine(" r --- Informacje o wersji");
-            Console.WriteLine(" d --- Dodaj zmianę dla dokumentacji");
-            Console.WriteLine(" u --- Usuń ostanią zmianę dla dokumentacji");
+            Console.WriteLine(" d --- Dodaj zmianę w dokumentacji");
+            Console.WriteLine(" u --- Usuń ostanią zmianę w dokumentacji");
             Console.WriteLine(" __________________________________________________");
             Console.WriteLine(" e --- Koniec");
         }
@@ -35,6 +35,7 @@ namespace pandora
             switch (SelectedOption)
             {
                 case 'm':
+                    Console.WriteLine(" m <- Pokaż menu\n");
                     ShowMenu();
                     GetMenuOption();
                     break;
@@ -47,9 +48,11 @@ namespace pandora
                     GetMenuOption();
                     break;   
                 case 'p':
+                    Dispose();
                     PushUps pushUps = new PushUps();
                     pushUps.MainPushUps();
                     pushUps.Dispose();
+                    Console.WriteLine(" m <- Pokaż menu");
                     GetMenuOption();
                     break;  
                 case 'e':
@@ -64,11 +67,15 @@ namespace pandora
                     GetMenuOption();
                     break; 
                 default:
-                    Console.WriteLine(" Brak opcji w menu. Spróbuj ponownie..");
+                    Console.WriteLine(" Brak opcji w Menu. Spróbuj ponownie..");
                     GetMenuOption();
                     break;
-
             }
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
     }
 }

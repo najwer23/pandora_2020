@@ -32,7 +32,7 @@ namespace pandora
 
         public void RemoveLastRelasedItem()
         {
-            Console.Write(" Usuń ostnią zamianę w dokumentacji");
+            Console.WriteLine(" u <-- Usuń ostanią zmianę dla dokumentacji");
             CheckCredentials(GetOrginPass());
 
             try
@@ -68,8 +68,7 @@ namespace pandora
 
         public void SaveRelaseNote()
         {
-            Console.Write(" Zmiana w dokumentacji");
-
+            Console.WriteLine(" d <-- Dodaj zmianę w dokumentacji");
             CheckCredentials(GetOrginPass());
 
             //Obecnie nie ma większego sensu sprawdzać czy hasło jest poprawne,
@@ -177,10 +176,10 @@ namespace pandora
 
         public static void ShowRelaseNote()
         {
+            Console.WriteLine(" r <-- Informacje o wersji\n");
+
             try
             {
-                Console.WriteLine(" Historia programu (timeline)\n");
-
                 string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
                 List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
 
@@ -211,6 +210,8 @@ namespace pandora
 
         public static void ShowForecast()
         {
+            Console.WriteLine(" f <-- Pogoda Wrocław");
+
             try
             { 
                 //Should It hide?
