@@ -8,11 +8,17 @@ namespace pandora
         public void ShowMenu()
         {
             Console.WriteLine(" Menu");
+            Console.WriteLine(" __________________________________________________");
             Console.WriteLine(" m --- Pokaż menu");
+            Console.WriteLine(" __________________________________________________");
+            Console.WriteLine(" p --- Push Ups");
+            Console.WriteLine(" __________________________________________________");
+            Console.WriteLine(" f --- Pogoda Wrocław");
+            Console.WriteLine(" __________________________________________________");
             Console.WriteLine(" r --- Informacje o wersji");
-            Console.WriteLine(" p --- Pogoda Wrocław");
             Console.WriteLine(" d --- Dodaj zmianę dla dokumentacji");
             Console.WriteLine(" u --- Usuń ostanią zmianę dla dokumentacji");
+            Console.WriteLine(" __________________________________________________");
             Console.WriteLine(" e --- Koniec");
         }
 
@@ -36,8 +42,14 @@ namespace pandora
                     ShowRelaseNote();
                     GetMenuOption();
                     break; 
-                case 'p':
+                case 'f':
                     ShowForecast();
+                    GetMenuOption();
+                    break;   
+                case 'p':
+                    PushUps pushUps = new PushUps();
+                    pushUps.MainPushUps();
+                    pushUps.Dispose();
                     GetMenuOption();
                     break;  
                 case 'e':
