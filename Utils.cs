@@ -1,25 +1,41 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace pandora
 {
     class Utils
     {
         protected string orginPass = "54b793b281b8aa779d1d5017ad73f588c9f1de98c7cfee52f3c8337e455107a64d29da1e2b638daace1f137a4675a56935a721f75f396ff429d16addefbea5ff";
+        protected string pathToRelaseJson = "FILES\\JSON\\relase.json";
+        protected string pathToRelaseJsonDebug = "C:\\Users\\mariusz\\pandora_2020\\pandora\\FILES\\JSON\\relase.json";
 
         public string GetOrginPass()
         {
             return orginPass;
         }
+        
+        public string GetPathToRelaseJson()
+        {
+            return pathToRelaseJson;
+        } 
+        
+        public string GetPathToRelaseJsonDebug()
+        {
+            return pathToRelaseJsonDebug;
+        }
+
+
+
+
 
         public static void ShowWelcomeText()
         {
-            Console.WriteLine(" Project Pandora 2020");
+            Console.WriteLine(" Project Pandora Reborn 2020");
             Console.WriteLine(" Autor: Mariusz Najwer");
             Console.WriteLine(" "+ DateTime.Now + "\n");
         }
@@ -37,7 +53,7 @@ namespace pandora
             {
                 try
                 {
-                    string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
+                    string txt = File.ReadAllText(GetPathToRelaseJson()); // akcja kompilacji -> zawartość
                     List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
 
                     if (deserializedJsonRelase == null)
@@ -50,10 +66,13 @@ namespace pandora
                     deserializedJsonRelase.RemoveAt(sizeList - 1);
 
                     string json = JsonConvert.SerializeObject(deserializedJsonRelase.ToArray());
-                    File.WriteAllText("FILES\\JSON\\relase.json", json);
-
-                    File.WriteAllText(@"C:\Users\mariusz\pandora_2020\pandora\FILES\JSON\relase.json", json); //kopia dla gita
+                    File.WriteAllText(GetPathToRelaseJson(), json);
                     Console.WriteLine(" Usunięto ostatnią zmianę!");
+
+                    #if DEBUG
+                    File.WriteAllText(GetPathToRelaseJsonDebug(), json);
+                    #endif
+                    
                 }
                 catch
                 {
@@ -62,7 +81,7 @@ namespace pandora
             } 
             else
             {
-                Console.WriteLine("\n Wpisano 3 razy błędne hasło");
+                Console.WriteLine(" Wpisano 3 razy błędne hasło");
                 Console.WriteLine(" m <- Pokaż menu");
             }         
         }
@@ -72,12 +91,12 @@ namespace pandora
             Console.WriteLine(" d <-- Dodaj zmianę w dokumentacji");
 
             //Obecnie nie ma większego sensu sprawdzać czy hasło jest poprawne,
-            //kiedy plik json nie jest szyfrowany
+            //kiedy plik json nie jest szyfrowany lub nie leży na serwerze
             if (CheckCredentials(GetOrginPass()))
             {
                 try
                 {
-                    string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
+                    string txt = File.ReadAllText(GetPathToRelaseJson()); // akcja kompilacji -> zawartość
                     List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
 
                     Console.Write(" Opis zmian: ");
@@ -96,11 +115,14 @@ namespace pandora
                         });
 
                         string json = JsonConvert.SerializeObject(deserializedJsonRelase.ToArray());
-                        File.WriteAllText("FILES\\JSON\\relase.json", json);
-
-                        File.WriteAllText(@"C:\Users\mariusz\pandora_2020\pandora\FILES\JSON\relase.json", json); //kopia dla gita
+                        File.WriteAllText(GetPathToRelaseJson(), json);
                         Console.WriteLine(" Zmiany w dokumentacji zostały zapisane!");
-                    } 
+
+                        #if DEBUG
+                        File.WriteAllText(GetPathToRelaseJsonDebug(), json);
+                        #endif
+
+                    }
                     else
                     {
                         Console.WriteLine(" Nie dokonano zmian w dokumentacji!");
@@ -113,7 +135,7 @@ namespace pandora
             } 
             else
             {
-                Console.WriteLine("\n Wpisano 3 razy błędne hasło");
+                Console.WriteLine("\n  Wpisano 3 razy błędne hasło");
                 Console.WriteLine(" m <- Pokaż menu");
             }
             
@@ -185,13 +207,13 @@ namespace pandora
             return hashedPassStringBuilder.ToString();
         }
 
-        public static void ShowRelaseNote()
+        public void ShowRelaseNote()
         {
             Console.WriteLine(" r <-- Informacje o wersji\n");
 
             try
             {
-                string txt = File.ReadAllText("FILES\\JSON\\relase.json"); // akcja kompilacji -> zawartość
+                string txt = File.ReadAllText(GetPathToRelaseJson()); // akcja kompilacji -> zawartość
                 List<JsonRelase> deserializedJsonRelase = JsonConvert.DeserializeObject<List<JsonRelase>>(txt);
 
                 int sizeList = deserializedJsonRelase.Count;
