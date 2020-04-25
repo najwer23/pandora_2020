@@ -26,8 +26,8 @@
     - [ ] Możliwość usnięcia dowolnej zmiany 
 - [ ] Push-Ups (pompki)
     - [x] Proste menu
-        - [ ] Funkcja pozwalająca kontynuować programu 100 pompek
-        - [ ] Funckja pozwalająca zrobić "test siły" dla programu 100 pompek
+        - [ ] Funkcja pozwalająca kontynuować program 100 pompek
+        - [ ] Funckja pozwalająca zrobić "test siły" dla program 100 pompek
     - [ ] Wpisanie dowlnej liczby pompek zrobionej w danym dniu
     - [ ] Kalendarz zrobionych pompek w postaci tabeli
     - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
@@ -36,7 +36,7 @@
 - [ ] Squats (przysiady)
     - [ ] Proste menu
         - [ ] Znalezienie programu ćwiczeń
-        - [ ] Funkcja pozwalająca kontynuować programu 
+        - [ ] Funkcja pozwalająca kontynuować program
         - [ ] Funckja pozwalająca zrobić "test siły"
     - [ ] Wpisanie dowlnej liczby przysiadów zrobionej w danym dniu
     - [ ] Kalendarz zrobionych przysiadów w postaci tabeli
@@ -46,7 +46,7 @@
 - [ ] Pull-Ups (podciągnięcia)
     - [ ] Proste menu
         - [ ] Znalezienie programu ćwiczeń
-        - [ ] Funkcja pozwalająca kontynuować programu 
+        - [ ] Funkcja pozwalająca kontynuować program 
         - [ ] Funckja pozwalająca zrobić "test siły"
     - [ ] Wpisanie dowlnej liczby podciągnięć zrobionej w danym dniu
     - [ ] Kalendarz zrobionych podciągnięć w postaci tabeli
@@ -56,7 +56,7 @@
 - [ ] Crunches (brzuszki)
     - [ ] Proste menu
         - [ ] Znalezienie programu ćwiczeń
-        - [ ] Funkcja pozwalająca kontynuować programu 
+        - [ ] Funkcja pozwalająca kontynuować program 
         - [ ] Funckja pozwalająca zrobić "test siły"
     - [ ] Wpisanie dowlnej liczby brzuszków zrobionej w danym dniu
     - [ ] Kalendarz zrobionych podciągnięć w postaci tabeli
@@ -64,9 +64,6 @@
     - [ ] Excel ze statystykami 
     - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
 - [ ] ???
-
-
-    
 
 # Technologies 
 - C#
