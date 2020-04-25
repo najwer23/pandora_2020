@@ -14,6 +14,7 @@ namespace pandora
             GetMenuPushUpsOption();
 
             Console.WriteLine(" Program Push-Ups zakończył pracę");
+            Dispose();
         }
 
         public void ShowMenuPushUps()

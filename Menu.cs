@@ -51,7 +51,6 @@ namespace pandora
                     Dispose();
                     PushUps pushUps = new PushUps();
                     pushUps.MainPushUps();
-                    pushUps.Dispose();
                     Console.WriteLine(" m <- Pokaż menu");
                     GetMenuOption();
                     break;  
