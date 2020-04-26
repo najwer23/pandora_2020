@@ -67,6 +67,12 @@
 
 # JSON
 
+Openweatherapi.org
+----
+```json
+{"coord":{"lon":17.03,"lat":51.1},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10d"}],"base":"stations","main":{"temp":286.15,"feels_like":280.7,"temp_min":286.15,"temp_max":286.15,"pressure":1012,"humidity":43},"visibility":10000,"wind":{"speed":5.1,"deg":330},"rain":{"3h":0.24},"clouds":{"all":54},"dt":1587896063,"sys":{"type":1,"id":1715,"country":"PL","sunrise":1587872022,"sunset":1587924316},"timezone":7200,"id":3081368,"name":"Wrocław","cod":200}
+```
+
 ExerciseProgress.json
 ----
 - "id" - unikatowy id elementu
@@ -88,6 +94,8 @@ ExerciseProgress.json
   }
 ]
 ```
+
+
 
 # Technologies 
 - C#
