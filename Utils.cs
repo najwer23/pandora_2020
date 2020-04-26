@@ -248,7 +248,7 @@ namespace pandora
             try
             { 
                 //Should It hide?
-                var jsonForecast = new WebClient().DownloadString("https://api.openweathermap.org/data/2.5/weather?q=Wroclaw,PL&appid=44d4448ac56b1e46ac958095e7a55622");
+                string jsonForecast = new WebClient().DownloadString("https://api.openweathermap.org/data/2.5/weather?q=Wroclaw,PL&appid=44d4448ac56b1e46ac958095e7a55622");
                 dynamic forecast = JsonConvert.DeserializeObject(jsonForecast);
 
                 double tempCelWroclaw = forecast.main.temp - 273.15;
