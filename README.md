@@ -120,12 +120,12 @@ Openweatherapi.org
 
 ExerciseProgress.json
 ----
-- "id" - unikatowy id elementu
+- "id" - unikatowy id 
 - "userId" - id użytkownika
 - "programName" - nazwa programu do ćwiczeń
 - "exId" - numer dnia z programu do ćwiczeń
-- "exTest" - test siły dla programu do ćwiczeń
-- "exTime" - czas ostatniego ćwiczenia z programem
+- "exTest" - liczba powtórzeń (test siły) dla programu do ćwiczeń
+- "exTime" - znacznik czasu ostatniego ćwiczenia z programem 
 
 ```json
 [
@@ -135,12 +135,80 @@ ExerciseProgress.json
     "programName": "100PushUps",
     "exId": 1,
     "exTest": 0,
-    "exTime": null
+    "exTime": "2020-04-24T20:46:59.9721842+02:00"
   }
 ]
 ```
 
+100PushUpsDic.json
+----
+- "id" - nr treningu z planu ćw.
+- "exWeek" - nr tygodnia z planu ćw.
+- "exDay" - nr dnia z planu ćw.
+- "exDaysToNext" - liczba dni przerwy do nastepnego treningu z planu ćw.
+- "exMin" - minimalna liczba powtórzeń dla nr. treningu z planu ćw.
+- "exMax" - maksymalna liczba powtórzeń dla nr. treningu z planu ćw.
+- "exPause" - minimalna przerwa między seriami w sekundach
+- "exIsTest" - czy test siły, czy normalny dzień treningu z planu ćw.
+- "exSeries" - tablica powtorzen do wykonania z planu ćw.
 
+```json
+[
+  {
+    "id":2,
+    "exWeek":0,
+    "exDay":1,
+    "exDaysToNext":1,
+    "exMin":0,
+    "exMax":5,
+    "exPause":60,
+    "exIsTest":false,
+    "exSeries":[
+      90,
+      20,
+      30
+    ]
+  }
+]
+```
+
+100PushUpsCal.json
+----
+- "id" - unikatowy id
+- "userId" - id użytkownika
+- "programName" - nazwa programu do ćwiczeń
+- "exId" - nr dnia treningu z planu ćwiczeń
+- "exTime" - znacznik czasu ostatniego ćwiczenia z programem
+- "exNumbrOfPushUps" - całkowita liczba powtórzeń ćwiczenia 
+- "exSeries" - tablica powtórzeń wykonanych z planu ćw.
+- "exIsTest" - czy test siły, czy normalny dzień treningu z planu ćw.
+- "exWeek" - nr tygodnia z planu ćw.
+- "exDay" - nr dnia z planu ćw.
+
+```json
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "programName": "100PushUps",
+    "exId": 1,
+    "exTime": "2020-04-24T20:46:59.9721842+02:00",
+    "exNumbrOfPushUps": 140,
+    "exSeries": [ 90, 20, 30 ],
+    "exIsTest": true,
+    "exWeek": 0,
+    "exDay": 0
+  },
+  {
+    "id": 1,
+    "userId": 1,
+    "programName": "CustomPushUps",
+    "exTime": "2020-04-24T20:46:59.9721842+02:00",
+    "exNumbrOfPushUps": 140,
+    "exSeries": [ 90, 20, 30 ]
+  }
+]
+```
 
 # Technologies 
 - C#
