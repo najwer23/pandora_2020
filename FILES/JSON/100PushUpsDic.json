@@ -1,0 +1,4 @@
+[
+  {"id":1,"exWeek":0,"exDay":0,"exDaysToNext":1,"exMin":0,"exMax":5,"exPause":60,"exIsTest":true,"exSeries":null},
+  {"id":2,"exWeek":0,"exDay":1,"exDaysToNext":1,"exMin":0,"exMax":5,"exPause":60,"exIsTest":false,"exSeries":[ 90, 20, 30]}
+]
