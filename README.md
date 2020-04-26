@@ -32,7 +32,7 @@
     - [x] Proste menu
         - [ ] Funkcja pozwalająca kontynuować program 100 pompek
         - [ ] Funckja pozwalająca zrobić "test siły" dla program 100 pompek
-    - [?] "Baza danych" w postaci plików JSON
+    - [ ] "Baza danych" w postaci plików JSON
     - [ ] Wpisanie dowlnej liczby pompek zrobionej w danym dniu
     - [ ] Kalendarz zrobionych pompek w postaci tabeli
     - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
