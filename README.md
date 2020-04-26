@@ -65,6 +65,30 @@
     - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
 - [ ] ???
 
+# JSON
+
+ExerciseProgress.json
+----
+- "id" - unikatowy id elementu
+- "userId" - id użytkownika
+- "programName" - nazwa programu do ćwiczeń
+- "exId" - numer dnia z programu do ćwiczeń
+- "exTest" - test siły dla programu do ćwiczeń
+- "exTime" - czas ostatniego ćwiczenia z programem
+
+```json
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "programName": "100PushUps",
+    "exId": 1,
+    "exTest": 0,
+    "exTime": null
+  }
+]
+```
+
 # Technologies 
 - C#
 - Newtonsoft.Json 12.0.3
