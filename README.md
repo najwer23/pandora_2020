@@ -4,12 +4,15 @@
 > Aplikacja ma służyć jako wsparcie dla osób uprawiających aktywność fizyczną (kalistenikę)
 
 # TODO
+### Menu
 - [x] Konsolowe Menu pozwalające wybierać pomiędzy dostępnymi funkcjami
+### Pogoda 
 - [x] Informacje pogodowe z wykorzystaniem api openweathermap.org
     - [x] Pobieranie danych w formacie JSON 
     - [x] Wyświetlane informacje: Temperatura, ciśnienie, prędkość wiatru, szerokość geograficzna, długość geograficzna, wschód i zachód słońca uwzględniający strefę czasową
     - [x] Informacje pogodowe dla miasta Wrocław
     - [ ] Informacje pogodowe dla Legnicy, Barcelony, Paryża, Londynu
+### O projekcie
 - [x] Informacje o aktualnej wersji (relase.json)
     - [x] Parsowanie lokalnego pliku formatu *.json
 - [x] Funkcja pozwalająca dodawać treść nowej zmiany dla aktualnej wersji (relase.json)
@@ -24,15 +27,18 @@
     - [x] Parsowanie danych wejściowych i zapisanie do lokalnego pliku *.json
     - [x] Obsługa wyjątków (brak plików, zły plik, pusty plik)
     - [ ] Możliwość usnięcia dowolnej zmiany 
+### Push-Ups (pompki)
 - [ ] Push-Ups (pompki)
     - [x] Proste menu
         - [ ] Funkcja pozwalająca kontynuować program 100 pompek
         - [ ] Funckja pozwalająca zrobić "test siły" dla program 100 pompek
+    - [?] "Baza danych" w postaci plików JSON
     - [ ] Wpisanie dowlnej liczby pompek zrobionej w danym dniu
     - [ ] Kalendarz zrobionych pompek w postaci tabeli
     - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
     - [ ] Excel ze statystykami 
     - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+### Squats (przysiady)
 - [ ] Squats (przysiady)
     - [ ] Proste menu
         - [ ] Znalezienie programu ćwiczeń
@@ -43,6 +49,7 @@
     - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
     - [ ] Excel ze statystykami
     - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+### Pull-Ups (podciągnięcia)
 - [ ] Pull-Ups (podciągnięcia)
     - [ ] Proste menu
         - [ ] Znalezienie programu ćwiczeń
@@ -53,6 +60,7 @@
     - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
     - [ ] Excel ze statystykami 
     - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+### Crunches (brzuszki)
 - [ ] Crunches (brzuszki)
     - [ ] Proste menu
         - [ ] Znalezienie programu ćwiczeń
@@ -63,12 +71,12 @@
     - [ ] Możliwość Eksportu aktualnych postępów do pliku *.txt 
     - [ ] Excel ze statystykami 
     - [ ] Minutnik, 60s, 90s, 120s, dowolna liczba sekund < 5min.
+### Ideas
 - [ ] ???
 
 # JSON
 
-Openweatherapi.org
-----
+### Openweatherapi.org
 ```json
 {
   "coord":{
@@ -118,8 +126,7 @@ Openweatherapi.org
 }
 ```
 
-ExerciseProgress.json
-----
+### ExerciseProgress.json
 - "id" - unikatowy id 
 - "userId" - id użytkownika
 - "programName" - nazwa programu do ćwiczeń
@@ -140,8 +147,7 @@ ExerciseProgress.json
 ]
 ```
 
-100PushUpsDic.json
-----
+### 100PushUpsDic.json
 - "id" - nr treningu z planu ćw.
 - "exWeek" - nr tygodnia z planu ćw.
 - "exDay" - nr dnia z planu ćw.
@@ -150,7 +156,7 @@ ExerciseProgress.json
 - "exMax" - maksymalna liczba powtórzeń dla nr. treningu z planu ćw.
 - "exPause" - minimalna przerwa między seriami w sekundach
 - "exIsTest" - czy test siły, czy normalny dzień treningu z planu ćw.
-- "exSeries" - tablica powtorzen do wykonania z planu ćw.
+- "exSeries" - tablica powtórzeń do wykonania z planu ćw.
 
 ```json
 [
@@ -172,8 +178,8 @@ ExerciseProgress.json
 ]
 ```
 
-100PushUpsCal.json
-----
+### 100PushUpsCal.json
+
 - "id" - unikatowy id
 - "userId" - id użytkownika
 - "programName" - nazwa programu do ćwiczeń
